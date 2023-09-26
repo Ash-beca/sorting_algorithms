@@ -2,25 +2,29 @@
 
 /**
  * bubble_sort - Sort  an array of integers
- * @array: Array to be sorted
- * @size: Size of array
- * Description: Function that sorts an array using the bubble sort method
- * Return: 0
+ * @array: an array of integers to sort
+ * @size: The size of the array
+ *
  */
+
 void bubble_sort(int *array, size_t size)
 {
-	unsigned int i, j;
 
-	if (!array)
+	size_t i, j;
+	int temp;
+
+	if (!array || size < 2)
 		return;
 
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < size - 1 ; i++)
 	{
-		for (j = 0; j < size - i - 1; j++)
+		for (j = 0; j < size - 1; j++)
 		{
 			if (array[j] > array[j + 1])
 			{
-				swap(&array[j], &array[j + 1]);
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
 				print_array(array, size);
 			}
 		}
